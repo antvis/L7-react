@@ -1,0 +1,58 @@
+{
+  "private": true,
+  "name": "@antv/l7-react",
+  "version": "2.3.0",
+  "scripts": {
+    "start": "dumi dev",
+    "docs:build": "dumi build",
+    "docs:deploy": "gh-pages -d docs-dist",
+    "build": "father-build",
+    "deploy": "npm run docs:build && npm run docs:deploy",
+    "release": "npm run build && npm publish",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage"
+  },
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "typings": "dist/index.d.ts",
+  "unpkg": "dist/l7-react.js",
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "files": [
+    "dist",
+    "lib",
+    "es",
+    "README.md"
+  ],
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "dependencies": {
+    "@antv/l7": "2.2.32",
+    "@antv/l7-maps": "2.2.32",
+    "@babel/runtime": "^7.7.7",
+    "@types/mapbox-gl": "^1.11.2",
+    "load-styles": "^2.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.10.2"
+  },
+  "devDependencies": {
+    "@umijs/preset-react": "1.x",
+    "@umijs/test": "^3.0.5",
+    "dumi": "^1.0.9",
+    "father-build": "^1.17.2",
+    "gh-pages": "^3.0.0",
+    "lint-staged": "^10.0.7",
+    "prettier": "^1.19.1",
+    "yorkie": "^2.0.0"
+  }
+}
