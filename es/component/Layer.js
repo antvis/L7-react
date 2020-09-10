@@ -21,4 +21,12 @@ var ImageLayer = React.memo(function Layer(props) {
 var CityBuildingLayer = React.memo(function Layer(props) {
   return BaseLayer('citybuildinglayer', props);
 });
-export { PolygonLayer, LineLayer, PointLayer, HeatmapLayer, RasterLayer, ImageLayer, CityBuildingLayer };
+export {
+  PolygonLayer,
+  LineLayer,
+  PointLayer,
+  HeatmapLayer,
+  RasterLayer,
+  ImageLayer,
+  CityBuildingLayer,
+};

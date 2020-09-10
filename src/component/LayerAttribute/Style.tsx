@@ -13,7 +13,7 @@ export default React.memo(function Chart(props: ILayerProps) {
     () => {
       layer.style(style);
     },
-    Object.keys(style).map((key) => style[key]),
+    Object.keys(style).map(key => style[key]),
   );
   return null;
 });

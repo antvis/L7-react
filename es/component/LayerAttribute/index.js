@@ -8,4 +8,15 @@ import Shape from './Shape';
 import Size from './Size';
 import Source from './Source';
 import Style from './Style';
-export { Active, Color, Filter, Source, Size, Shape, Style, Scale, Select, Animate };
+export {
+  Active,
+  Color,
+  Filter,
+  Source,
+  Size,
+  Shape,
+  Style,
+  Scale,
+  Select,
+  Animate,
+};

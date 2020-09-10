@@ -92,7 +92,7 @@ onSceneLoaded 回调函数能够取到 scene 对象
 ```jsx
 import { SceneContext } from '@antv/l7-react';
 <SceneContext.Consumer>
-  {(scene) => {
+  {scene => {
     // use `scene` here
   }}
 </SceneContext.Consumer>;
