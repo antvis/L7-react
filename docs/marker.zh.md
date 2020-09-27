@@ -28,12 +28,11 @@ order: 3
 ## 实例
 
 ```jsx
-import { Marker} from '@antv/l7-react'
+import { Marker } from '@antv/l7-react';
 <Marker
- option = {{
-   color:'red'
- }}
- lnglat ={{[120,32]}}
-/>
-
+  option={{
+    color: 'red',
+  }}
+  lnglat={[120, 32]}
+/>;
 ```
