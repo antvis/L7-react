@@ -18,8 +18,7 @@ React 各个组件名称和 L7 名称保持一致
 ### 使用方式
 
 ```jsx
-import { PointLayer } '@antv/l7-react';
-
+import { PointLayer } from '@antv/l7-react';
 ```
 
 ## Layer Props
@@ -100,10 +99,6 @@ active，select 配置项
 
 - color 设置交互的颜色，指滑过或者选中的
 
-```jsx
-<>
-```
-
 ### 获取 layer 对象
 
 #### onLayerLoaded
@@ -164,7 +159,7 @@ import { PolygonLayer } from '@antv/l7-react';
 ### 示例
 
 ```jsx
-import { LayerEvent, PolygonLayer } from 'l7-react';
+import { LayerEvent, PolygonLayer } from '@antv/l7-react';
 <PolygonLayer>
   <LayerEvent type="click" handler={() => {}} />
   <LayerEvent type="mousemove" handler={() => {}} />
