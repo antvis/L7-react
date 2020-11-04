@@ -14,7 +14,7 @@
   },
   "main": "lib/index.js",
   "module": "es/index.js",
-  "typings": "dist/index.d.ts",
+  "typings": "lib/index.d.ts",
   "unpkg": "dist/l7-react.js",
   "gitHooks": {
     "pre-commit": "lint-staged"
