@@ -54,8 +54,8 @@ const MapboxScene = React.memo((props: IMapSceneConig) => {
     }
   }, [JSON.stringify(map.center)]);
   useEffect(() => {
-    if (scene && map.pitch) {
-      scene.setPitch(map.pitch);
+    if (scene && map.pitch !== undefined) {
+      scene.setPitch(map.pitch || 0);
     }
   }, [map.pitch]);
   useEffect(() => {
