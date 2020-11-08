@@ -8,7 +8,7 @@ interface IControlProps {
 }
 export default React.memo(function MapControl(props: IControlProps) {
   const scene = (useSceneValue() as unknown) as Scene;
-  const [, setControl] = useState();
+  const [, setControl] = useState<any>();
   const { type, position } = props;
   useEffect(() => {
     let ctr: IControl;
@@ -28,7 +28,7 @@ export default React.memo(function MapControl(props: IControlProps) {
           position: position || 'bottomleft',
         });
     }
-    setControl(ctr);
+    setControl(ctr as IControl);
     scene.addControl(ctr);
     return () => {
       scene.removeControl(ctr);

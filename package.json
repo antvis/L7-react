@@ -1,6 +1,6 @@
 {
   "name": "@antv/l7-react",
-  "version": "2.2.39",
+  "version": "2.2.40",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -14,7 +14,7 @@
   },
   "main": "lib/index.js",
   "module": "es/index.js",
-  "typings": "dist/index.d.ts",
+  "typings": "lib/index.d.ts",
   "unpkg": "dist/l7-react.js",
   "gitHooks": {
     "pre-commit": "lint-staged"
