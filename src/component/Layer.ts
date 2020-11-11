@@ -33,13 +33,13 @@ const RasterLayer = React.memo(function Layer(
 const ImageLayer = React.memo(function Layer(
   props: ILayerProps & { children?: any },
 ) {
-  return BaseLayer('imagelayer', props);
+  return BaseLayer('imageLayer', props);
 });
 
 const CityBuildingLayer = React.memo(function Layer(
   props: ILayerProps & { children?: any },
 ) {
-  return BaseLayer('citybuildinglayer', props);
+  return BaseLayer('citybuildingLayer', props);
 });
 
 export {
