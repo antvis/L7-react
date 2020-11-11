@@ -8,7 +8,7 @@ order: 1
 在 React 版本中 Mapbox 和高德地图作为两个组件封装的。
 
 ```javascript
-import { MapboxScene, AmapScene } from '@antv/l7-react';
+import { MapboxScene, AMapScene } from '@antv/l7-react';
 ```
 
 ## Scene Props
