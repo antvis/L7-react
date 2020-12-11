@@ -1,4 +1,4 @@
-import { IActiveOption, IImage, ILayer, Scene } from '@antv/l7';
+import { IImage } from '@antv/l7';
 import * as React from 'react';
 import { useSceneValue } from './SceneContext';
 
@@ -9,7 +9,7 @@ interface ILoadImageProps {
 }
 export default React.memo(function LoadImage(props: ILoadImageProps) {
   const { name, url } = props;
-  const mapScene = (useSceneValue() as unknown) as Scene;
+  const mapScene = useSceneValue();
   useEffect(() => {
     mapScene.addImage(name, url);
   }, [name, url]);
