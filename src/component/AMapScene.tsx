@@ -2,7 +2,7 @@ import { IMapConfig, ISceneConfig, Scene } from '@antv/l7';
 // @ts-ignore
 // tslint:disable-next-line:no-submodule-imports
 import { GaodeMap } from '@antv/l7-maps';
-import React, { createElement, createRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { SceneContext } from './SceneContext';
 interface IMapSceneConig {
   style?: React.CSSProperties;
@@ -13,12 +13,12 @@ interface IMapSceneConig {
   onSceneLoaded?: (scene: Scene) => void;
 }
 const AMapScene = React.memo((props: IMapSceneConig) => {
-  const { style, className, map, option, onSceneLoaded } = props;
-  const container = createRef();
+  const { style, className, map, option, onSceneLoaded, children } = props;
+  const container = useRef<HTMLDivElement>(null);
   const [scene, setScene] = useState<Scene>();
   useEffect(() => {
     const sceneInstance = new Scene({
-      id: container.current as HTMLDivElement,
+      id: container.current!,
       ...option,
       map: new GaodeMap(map),
     });
@@ -62,15 +62,9 @@ const AMapScene = React.memo((props: IMapSceneConig) => {
   }, [map.rotation]);
   return (
     <SceneContext.Provider value={scene}>
-      {createElement(
-        'div',
-        {
-          ref: container,
-          style,
-          className,
-        },
-        scene && props.children,
-      )}
+      <div ref={container} className={className} style={style}>
+        {scene && children}
+      </div>
     </SceneContext.Provider>
   );
 });

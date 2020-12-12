@@ -1,5 +1,5 @@
-import { IControl, Logo, PositionName, Scale, Scene, Zoom } from '@antv/l7';
-import React, { useEffect, useState } from 'react';
+import { IControl, Logo, PositionName, Scale, Zoom } from '@antv/l7';
+import React, { useRef, useEffect } from 'react';
 import { useSceneValue } from './SceneContext';
 interface IControlProps {
   type: 'scale' | 'zoom' | 'logo';
@@ -7,8 +7,8 @@ interface IControlProps {
   [key: string]: any;
 }
 export default React.memo(function MapControl(props: IControlProps) {
-  const scene = (useSceneValue() as unknown) as Scene;
-  const [, setControl] = useState<any>();
+  const scene = useSceneValue();
+  const control = useRef<IControl>();
   const { type, position } = props;
   useEffect(() => {
     let ctr: IControl;
@@ -28,12 +28,17 @@ export default React.memo(function MapControl(props: IControlProps) {
           position: position || 'bottomleft',
         });
     }
-    setControl(ctr as IControl);
+    control.current = ctr;
     scene.addControl(ctr);
     return () => {
+      control.current = undefined;
       scene.removeControl(ctr);
     };
-  }, [type, position]);
+  }, [type]);
+
+  useEffect(() => {
+    control.current && control.current.setPosition(position as any);
+  }, [position]);
 
   return null;
 });

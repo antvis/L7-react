@@ -1,4 +1,4 @@
-import { Control, PositionName, Scene } from '@antv/l7';
+import { Control, PositionName } from '@antv/l7';
 import * as React from 'react';
 import { createPortal } from 'react-dom';
 import { useSceneValue } from './SceneContext';
@@ -11,10 +11,13 @@ interface IColorLegendProps {
   children?: JSX.Element | JSX.Element[] | Array<JSX.Element | undefined>;
 }
 
-export default function CustoonConrol(props: IColorLegendProps) {
+export default function CustomControl(
+  props: IColorLegendProps,
+): React.ReactPortal {
   const { className, style, children, position } = props;
-  const mapScene = (useSceneValue() as unknown) as Scene;
-  const el = document.createElement('div');
+  const mapScene = useSceneValue();
+  const [el] = useState<HTMLDivElement>(() => document.createElement('div'));
+
   useEffect(() => {
     const custom = new Control({
       position,
