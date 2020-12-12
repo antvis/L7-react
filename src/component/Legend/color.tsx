@@ -5,10 +5,10 @@ interface IColorLegendProps {
   className?: string;
   style?: React.CSSProperties;
 }
-import './style.css';
+
 export const ColorComponent = React.memo((props: IColorLegendProps) => {
-  const { className, style, title } = props;
-  const items = [
+  // const { className, style, title } = props;
+  const defaultItems = [
     { title: '1', color: 'rgb(239,243,255)' },
     { title: '10', color: 'rgb(198,219,239)' },
     { title: '30', color: 'rgb(158,202,225)' },
@@ -16,6 +16,7 @@ export const ColorComponent = React.memo((props: IColorLegendProps) => {
     { title: '60', color: 'rgb(49,130,189)' },
     { title: '100', color: 'rgb(8,81,156)' },
   ];
+  const { items = defaultItems } = props;
 
   return (
     <div>
@@ -23,7 +24,7 @@ export const ColorComponent = React.memo((props: IColorLegendProps) => {
         {items.map((c, i) => {
           return (
             <div
-              key={i.toString()}
+              key={i}
               style={{
                 background: c.color,
                 height: '100%',
@@ -41,7 +42,7 @@ export const ColorComponent = React.memo((props: IColorLegendProps) => {
         {items.map((c, i) => {
           return (
             <div
-              key={i.toString() + '122'}
+              key={i}
               style={{
                 background: '#fff',
                 height: '100%',

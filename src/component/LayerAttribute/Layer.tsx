@@ -7,7 +7,6 @@ import {
   PointLayer,
   PolygonLayer,
   RasterLayer,
-  Scene,
 } from '@antv/l7';
 import * as React from 'react';
 import { LayerContext } from '../LayerContext';
@@ -43,7 +42,7 @@ export default function BaseLayer(type: string, props: ILayerProps) {
     options,
     onLayerLoaded,
   } = props;
-  const mapScene = (useSceneValue() as unknown) as Scene;
+  const mapScene = useSceneValue();
   const [layer, setLayer] = useState<ILayer>();
   if (!layer) {
     let l: ILayer;

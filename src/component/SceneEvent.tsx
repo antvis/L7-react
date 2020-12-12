@@ -1,4 +1,3 @@
-import { ILayer, Scene } from '@antv/l7';
 import * as React from 'react';
 import { useSceneValue } from './SceneContext';
 
@@ -9,7 +8,7 @@ interface ILayerProps {
 }
 const SceneEvent = React.memo((props: ILayerProps) => {
   const { type, handler } = props;
-  const mapScene = (useSceneValue() as unknown) as Scene;
+  const mapScene = useSceneValue();
 
   useEffect(() => {
     mapScene.on(type, handler);

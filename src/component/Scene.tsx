@@ -1,5 +1,5 @@
 import { IMapWrapper, Scene } from '@antv/l7';
-import React, { createElement, createRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { SceneContext } from './SceneContext';
 interface IMapSceneConig {
   style?: Partial<React.CSSProperties>;
@@ -8,12 +8,12 @@ interface IMapSceneConig {
   children?: React.ReactNode;
 }
 export default React.memo((props: IMapSceneConig) => {
-  const { style, className, map } = props;
-  const container = createRef();
+  const { style, className, map, children } = props;
+  const container = useRef<HTMLDivElement>(null);
   const [scene, setScene] = useState<Scene>();
   useEffect(() => {
     const sceneInstance = new Scene({
-      id: container.current as HTMLDivElement,
+      id: container.current!,
       map,
     });
     sceneInstance.on('loaded', () => {
@@ -26,15 +26,9 @@ export default React.memo((props: IMapSceneConig) => {
 
   return (
     <SceneContext.Provider value={scene}>
-      {createElement(
-        'div',
-        {
-          ref: container,
-          style,
-          className,
-        },
-        scene && props.children,
-      )}
+      <div ref={container} className={className} style={style}>
+        {scene && children}
+      </div>
     </SceneContext.Provider>
   );
 });

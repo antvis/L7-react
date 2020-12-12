@@ -2,9 +2,7 @@ import * as React from 'react';
 import { ILayerProps } from './LayerAttribute';
 import BaseLayer from './LayerAttribute/Layer';
 
-const PolygonLayer = React.memo(function Layer(
-  props: ILayerProps & { children?: any },
-) {
+const PolygonLayer = React.memo(function Layer(props: ILayerProps) {
   return BaseLayer('polygonLayer', props);
 });
 
@@ -12,33 +10,23 @@ const LineLayer = React.memo(function Layer(props: ILayerProps) {
   return BaseLayer('lineLayer', props);
 });
 
-const PointLayer = React.memo(function Layer(
-  props: ILayerProps & { children?: any },
-) {
+const PointLayer = React.memo(function Layer(props: ILayerProps) {
   return BaseLayer('pointLayer', props);
 });
 
-const HeatmapLayer = React.memo(function Layer(
-  props: ILayerProps & { children?: any },
-) {
+const HeatmapLayer = React.memo(function Layer(props: ILayerProps) {
   return BaseLayer('heatmapLayer', props);
 });
 
-const RasterLayer = React.memo(function Layer(
-  props: ILayerProps & { children?: any },
-) {
+const RasterLayer = React.memo(function Layer(props: ILayerProps) {
   return BaseLayer('rasterLayer', props);
 });
 
-const ImageLayer = React.memo(function Layer(
-  props: ILayerProps & { children?: any },
-) {
+const ImageLayer = React.memo(function Layer(props: ILayerProps) {
   return BaseLayer('imageLayer', props);
 });
 
-const CityBuildingLayer = React.memo(function Layer(
-  props: ILayerProps & { children?: any },
-) {
+const CityBuildingLayer = React.memo(function Layer(props: ILayerProps) {
   return BaseLayer('citybuildingLayer', props);
 });
 
