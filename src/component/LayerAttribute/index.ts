@@ -24,7 +24,6 @@ type CallBack = (...args: any[]) => any;
 
 export interface IAttributeOptions {
   field: string;
-  value: string | number;
   values: string[] | number[] | string | number | CallBack;
   scale?: string;
   blend: keyof typeof BlendType;
@@ -70,8 +69,8 @@ export interface IActiveOptions {
 export interface ILayerProps {
   options?: Partial<ILayerOption>;
   source: ISourceOptions;
-  color: Partial<IAttributeOptions>;
-  shape: Partial<IAttributeOptions>;
+  color?: Partial<IAttributeOptions>;
+  shape?: Partial<IAttributeOptions>;
   scale?: Partial<IScaleAttributeOptions>;
   size?: Partial<IAttributeOptions>;
   style?: Partial<IStyleOptions>;
