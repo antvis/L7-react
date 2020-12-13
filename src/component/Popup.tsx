@@ -13,6 +13,7 @@ import { SceneContext } from './SceneContext';
 interface IPopupProps {
   option?: Partial<IPopupOption>;
   lnglat: number[] | { lng: number; lat: number };
+  lngLat?: number[] | { lng: number; lat: number };
   children?: React.ReactNode;
 }
 export default class PopupComponet extends React.PureComponent<IPopupProps> {
@@ -24,14 +25,17 @@ export default class PopupComponet extends React.PureComponent<IPopupProps> {
     this.el = document.createElement('div');
   }
   public componentDidMount() {
-    const { lnglat, children, option } = this.props;
+    const { lnglat, children, option, lngLat } = this.props;
     const p = new Popup({
       ...option,
-      stopPropagation: false,
+      stopPropagation: this.props.option?.stopPropagation,
     });
 
     if (lnglat) {
       p.setLnglat(lnglat);
+    }
+    if (lngLat) {
+      p.setLnglat(lngLat);
     }
     if (children) {
       p.setDOMContent(this.el);
@@ -54,7 +58,7 @@ export default class PopupComponet extends React.PureComponent<IPopupProps> {
       this.popup.remove();
       this.popup = new Popup({
         ...this.props.option,
-        stopPropagation: false,
+        stopPropagation: this.props.option?.stopPropagation,
       });
       this.popup.setLnglat(this.props.lnglat);
       this.popup.setDOMContent(this.el);

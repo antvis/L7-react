@@ -87,16 +87,11 @@ export default function BaseLayer(type: string, props: ILayerProps) {
       };
     }
   }, []);
-  useEffect(() => {
-    // 重绘layer
-    if (layer) {
-      mapScene.render();
-    }
-  });
 
   useEffect(() => {
     if (layer && layer.inited && options) {
       layer.updateLayerConfig(options);
+      mapScene.render();
     }
   }, [options?.minZoom, options?.maxZoom, options?.visible]);
 
@@ -111,6 +106,13 @@ export default function BaseLayer(type: string, props: ILayerProps) {
       layer.setBlend(options.blend);
     }
   }, [options?.blend]);
+
+  useEffect(() => {
+    // 重绘layer
+    if (layer) {
+      mapScene.render();
+    }
+  }, []);
 
   return layer !== null && layer !== undefined ? (
     <LayerContext.Provider value={layer}>
