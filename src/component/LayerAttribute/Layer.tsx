@@ -43,8 +43,7 @@ export default function BaseLayer(type: string, props: ILayerProps) {
     onLayerLoaded,
   } = props;
   const mapScene = useSceneValue();
-  const [layer, setLayer] = useState<ILayer>();
-  if (!layer) {
+  const [layer] = useState<ILayer>(() => {
     let l: ILayer;
     switch (type) {
       case 'polygonLayer':
@@ -76,45 +75,41 @@ export default function BaseLayer(type: string, props: ILayerProps) {
         onLayerLoaded(l, mapScene);
       }
     });
-    setLayer(l);
-  }
+
+    return l;
+  });
 
   useEffect(() => {
-    if (layer !== undefined) {
-      mapScene.addLayer(layer as ILayer);
-      return () => {
-        mapScene.removeLayer(layer as ILayer);
-      };
-    }
+    mapScene.addLayer(layer);
+    return () => {
+      mapScene.removeLayer(layer);
+    };
   }, []);
 
   useEffect(() => {
-    if (layer && layer.inited && options) {
+    if (layer.inited && options) {
       layer.updateLayerConfig(options);
-      mapScene.render();
     }
   }, [options?.minZoom, options?.maxZoom, options?.visible]);
 
   useEffect(() => {
-    if (layer && layer.inited && options && options.zIndex) {
+    if (layer.inited && options?.zIndex) {
       layer.setIndex(options.zIndex);
     }
   }, [options?.zIndex]);
 
   useEffect(() => {
-    if (layer && layer.inited && options && options.blend) {
+    if (layer.inited && options?.blend) {
       layer.setBlend(options.blend);
     }
   }, [options?.blend]);
 
   useEffect(() => {
     // 重绘layer
-    if (layer) {
-      mapScene.render();
-    }
-  }, []);
+    mapScene.render();
+  });
 
-  return layer !== null && layer !== undefined ? (
+  return (
     <LayerContext.Provider value={layer}>
       <Source layer={layer} source={source} />
       {scale && <Scale layer={layer} scale={scale} />}
@@ -129,5 +124,5 @@ export default function BaseLayer(type: string, props: ILayerProps) {
       {/* LayerContext主要传入LayerEvent组件 */}
       {props.children}
     </LayerContext.Provider>
-  ) : null;
+  );
 }

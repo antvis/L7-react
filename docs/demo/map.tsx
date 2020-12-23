@@ -1,7 +1,7 @@
 import React from 'react';
 import { MapScene, Control, PolygonLayer, HeatmapLayer } from '@antv/l7-react';
 import { useRequest } from 'ahooks';
-async function getData(url) {
+async function getData(url: string) {
   const res = await fetch(url);
   return await res.json();
 }
@@ -12,7 +12,7 @@ const urls = {
     'https://gw.alipayobjects.com/os/bmw-prod/8990e8b4-c58e-419b-afb9-8ea3daff2dd1.json',
 };
 export default () => {
-  const { run, data, fetches } = useRequest(getData, {
+  const { run, fetches } = useRequest(getData, {
     manual: true,
     fetchKey: url => url,
   });
@@ -20,6 +20,7 @@ export default () => {
     run(urls.world);
     run(urls.grid);
   }, []);
+
   return (
     <MapScene
       map={{
@@ -34,7 +35,7 @@ export default () => {
         background: '#011030',
       }}
     >
-      {fetches.length !== 0 && !fetches[urls.grid].loading && (
+      {fetches[urls.grid]?.loading === false && (
         <HeatmapLayer
           key={'2'}
           source={{
@@ -61,7 +62,7 @@ export default () => {
           }}
         />
       )}
-      {fetches.length !== 0 && !fetches[urls.world].loading && (
+      {fetches[urls.world]?.loading === false && (
         <PolygonLayer
           key={'1'}
           options={{
