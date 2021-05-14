@@ -1,6 +1,6 @@
 {
   "name": "@antv/l7-react",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
