@@ -6,8 +6,8 @@
     "docs:build": "dumi build",
     "docs:deploy": "gh-pages -d docs-dist",
     "build": "father-build",
-    "deploy": "npm run docs:build && npm run docs:deploy",
-    "release": "npm run build && npm publish",
+    "deploy": "yarn run docs:build && yarn run docs:deploy",
+    "release": "yarn run build && yarn publish",
     "prettier": "prettier --write \"src/**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage"
