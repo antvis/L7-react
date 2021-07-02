@@ -38,6 +38,7 @@ export default function CustomControl(
 
       return el;
     };
+    custom.onRemove = () => {};
     mapScene.addControl(custom);
     return () => {
       mapScene.removeControl(custom);
