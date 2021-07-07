@@ -1,4 +1,3 @@
-//@ts-ignore
 import { AMapScene, CustomControl } from '@antv/l7-react';
 import React, { useState } from 'react';
 export default () => {

@@ -40,12 +40,12 @@
     "load-styles": "^2.0.0"
   },
   "peerDependencies": {
-    "@antv/l7": "^2.2.37",
+    "@antv/l7": "^2.4.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@antv/l7": "^2.2.37",
+    "@antv/l7": "^2.4.3",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@umijs/preset-react": "1.x",
