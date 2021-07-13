@@ -4,7 +4,7 @@ import { IMapConfig, ISceneConfig, Scene, Zoom } from '@antv/l7';
 import { Mapbox } from '@antv/l7-maps';
 import React, { createElement, createRef, useEffect, useState } from 'react';
 import { SceneContext } from './SceneContext';
-interface IMapSceneConig {
+interface IMapSceneConfig {
   style?: React.CSSProperties;
   className?: string;
   map: Partial<IMapConfig>;
@@ -12,7 +12,7 @@ interface IMapSceneConig {
   children?: React.ReactNode;
   onSceneLoaded?: (scene: Scene) => void;
 }
-const MapboxScene = React.memo((props: IMapSceneConig) => {
+const MapboxScene = React.memo((props: IMapSceneConfig) => {
   const { style, className, map, option, onSceneLoaded } = props;
   const container = createRef();
   const [scene, setScene] = useState<Scene>();
