@@ -1,4 +1,5 @@
 export * from './component/SceneContext';
+export * from './component/MapScene/interface';
 export { default as AMapScene } from './component/MapScene/AMapScene';
 export { default as MapboxScene } from './component/MapScene/MapboxScene';
 export { default as AMapSceneV2 } from './component/MapScene/AMapSceneV2';
