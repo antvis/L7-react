@@ -3,15 +3,9 @@ import { IMapConfig, ISceneConfig, Scene } from '@antv/l7';
 // tslint:disable-next-line:no-submodule-imports
 import { GaodeMap } from '@antv/l7-maps';
 import React, { useRef, useEffect, useState } from 'react';
-import { SceneContext } from './SceneContext';
-interface IMapSceneConfig {
-  style?: React.CSSProperties;
-  className?: string;
-  map: Partial<IMapConfig>;
-  option?: Partial<ISceneConfig>;
-  children?: React.ReactNode;
-  onSceneLoaded?: (scene: Scene) => void;
-}
+import { SceneContext } from '../SceneContext';
+import { IMapSceneConfig } from './interface';
+
 const AMapScene = React.memo((props: IMapSceneConfig) => {
   const { style, className, map, option, onSceneLoaded, children } = props;
   const container = useRef<HTMLDivElement>(null);

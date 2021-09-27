@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useSceneValue } from './SceneContext';
 
 const { useEffect } = React;
-interface ILayerProps {
+export interface ILayerProps {
   type: string;
   handler: (...args: any[]) => void;
 }

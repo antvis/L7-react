@@ -10,7 +10,7 @@ import {
 import * as React from 'react';
 import { createPortal } from 'react-dom';
 import { SceneContext } from './SceneContext';
-interface IPopupProps {
+export interface IPopupProps {
   option?: Partial<IPopupOption>;
   lnglat: number[] | { lng: number; lat: number };
   lngLat?: number[] | { lng: number; lat: number };

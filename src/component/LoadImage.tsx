@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useSceneValue } from './SceneContext';
 
 const { useEffect } = React;
-interface ILoadImageProps {
+export interface ILoadImageProps {
   name: string;
   url: IImage;
 }
