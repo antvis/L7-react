@@ -13,7 +13,7 @@ import {
 import * as React from 'react';
 import { createPortal } from 'react-dom';
 import { SceneContext } from './SceneContext';
-interface IMarkerProps {
+export interface IMarkerProps {
   option?: IMarkerOption;
   lnglat: ILngLat | number[];
   onMarkerLoaded?: (marker: IMarker) => void;

@@ -1,7 +1,7 @@
 import { IMapWrapper, Scene } from '@antv/l7';
 import React, { useRef, useEffect, useState } from 'react';
 import { SceneContext } from './SceneContext';
-interface IMapSceneConfig {
+export interface IMapSceneConfig {
   style?: Partial<React.CSSProperties>;
   className?: string;
   map: IMapWrapper;

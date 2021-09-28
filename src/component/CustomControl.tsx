@@ -4,7 +4,7 @@ import { createPortal } from 'react-dom';
 import { useSceneValue } from './SceneContext';
 const { useEffect, useState } = React;
 
-interface IColorLegendProps {
+export interface IColorLegendProps {
   position: PositionName;
   className?: string;
   style?: React.CSSProperties;

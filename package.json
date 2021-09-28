@@ -1,6 +1,11 @@
 {
   "name": "@antv/l7-react",
   "version": "2.3.3",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antvis/L7-react"
+  },
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",

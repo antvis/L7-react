@@ -1,28 +1,22 @@
-import { IMapConfig, ISceneConfig, Scene, Zoom } from '@antv/l7';
+import { IMapConfig, ISceneConfig, Scene } from '@antv/l7';
 // @ts-ignore
 // tslint:disable-next-line:no-submodule-imports
-import { Mapbox } from '@antv/l7-maps';
-import React, { createElement, createRef, useEffect, useState } from 'react';
-import { SceneContext } from './SceneContext';
-interface IMapSceneConfig {
-  style?: React.CSSProperties;
-  className?: string;
-  map: Partial<IMapConfig>;
-  option?: Partial<ISceneConfig>;
-  children?: React.ReactNode;
-  onSceneLoaded?: (scene: Scene) => void;
-}
-const MapboxScene = React.memo((props: IMapSceneConfig) => {
-  const { style, className, map, option, onSceneLoaded } = props;
-  const container = createRef();
+import { Map } from '@antv/l7-maps';
+import React, { useRef, useEffect, useState } from 'react';
+import { SceneContext } from '../SceneContext';
+import { IMapSceneConfig } from './interface';
+
+const MapScene = React.memo((props: IMapSceneConfig) => {
+  const { style, className, map, option, onSceneLoaded, children } = props;
+  const container = useRef<HTMLDivElement>(null);
   const [scene, setScene] = useState<Scene>();
 
   // 地图初始
   useEffect(() => {
     const sceneInstance = new Scene({
-      id: container.current as HTMLDivElement,
+      id: container.current!,
       ...option,
-      map: new Mapbox(map),
+      map: new Map(map),
     });
     sceneInstance.on('loaded', () => {
       setScene(sceneInstance);
@@ -54,8 +48,8 @@ const MapboxScene = React.memo((props: IMapSceneConfig) => {
     }
   }, [JSON.stringify(map.center)]);
   useEffect(() => {
-    if (scene && map.pitch !== undefined) {
-      scene.setPitch(map.pitch || 0);
+    if (scene && map.pitch) {
+      scene.setPitch(map.pitch);
     }
   }, [map.pitch]);
   useEffect(() => {
@@ -66,17 +60,11 @@ const MapboxScene = React.memo((props: IMapSceneConfig) => {
 
   return (
     <SceneContext.Provider value={scene}>
-      {createElement(
-        'div',
-        {
-          ref: container,
-          style,
-          className,
-        },
-        scene && props.children,
-      )}
+      <div ref={container} className={className} style={style}>
+        {scene && children}
+      </div>
     </SceneContext.Provider>
   );
 });
 
-export default MapboxScene;
+export default MapScene;

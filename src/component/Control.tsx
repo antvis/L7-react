@@ -1,7 +1,7 @@
 import { IControl, Logo, PositionName, Scale, Zoom, Layers } from '@antv/l7';
 import React, { useRef, useEffect } from 'react';
 import { useSceneValue } from './SceneContext';
-interface IControlProps {
+export interface IControlProps {
   type: 'scale' | 'zoom' | 'logo' | 'layer';
   position: PositionName;
   [key: string]: any;
