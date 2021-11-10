@@ -15,6 +15,7 @@ export default function CustomControl(
   props: IColorLegendProps,
 ): React.ReactPortal {
   const { className, style, children, position } = props;
+  const [control, setControl] = useState<Control>();
   const mapScene = useSceneValue();
   const [el] = useState<HTMLDivElement>(() => document.createElement('div'));
 
@@ -39,10 +40,16 @@ export default function CustomControl(
       return el;
     };
     custom.onRemove = () => {};
+    setControl(custom);
     mapScene.addControl(custom);
     return () => {
       mapScene.removeControl(custom);
     };
   }, []);
+
+  useEffect(() => {
+    control && control.setPosition((position as any) || 'bottomleft');
+  }, [position]);
+
   return createPortal(children, el);
 }
