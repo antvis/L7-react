@@ -10,5 +10,7 @@ export default defineConfig({
   resolve: {
     previewLangs: [],
   },
+  publicPath: '/L7-react/',
+  base: '/L7-react/',
   // more config: https://d.umijs.org/config
 });
