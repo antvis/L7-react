@@ -1,7 +1,7 @@
 import { IAnimateOption, ILayer } from '@antv/l7';
 import * as React from 'react';
 import { IStyleOptions } from './';
-
+import { isEqual } from 'lodash';
 const { useEffect } = React;
 interface ILayerProps {
   layer: ILayer;
@@ -9,8 +9,7 @@ interface ILayerProps {
 }
 export default React.memo(function Chart(props: ILayerProps) {
   const { layer, animate } = props;
-  useEffect(() => {
-    layer.animate(animate);
-  }, [JSON.stringify(animate)]);
+
+  layer.animate(animate);
   return null;
-});
+}, isEqual);
