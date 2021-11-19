@@ -1,11 +1,11 @@
 import { defineConfig } from 'dumi';
 
 export default defineConfig({
-  title: 'react',
+  title: 'L7React',
   favicon:
-    'https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png',
+    'https://gw.alipayobjects.com/mdn/rms_08cc33/afts/img/A*aoGdSISB9soAAAAAAAAAAAAAARQnAQ',
   logo:
-    'https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png',
+    'https://gw.alipayobjects.com/mdn/rms_08cc33/afts/img/A*aoGdSISB9soAAAAAAAAAAAAAARQnAQ',
   outputPath: 'docs-dist',
   resolve: {
     previewLangs: [],
