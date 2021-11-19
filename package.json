@@ -52,6 +52,7 @@
   },
   "devDependencies": {
     "@antv/l7": "^2.2.37",
+    "@types/lodash": "^4.14.177",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@umijs/preset-react": "1.x",
