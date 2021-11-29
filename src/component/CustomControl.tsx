@@ -3,6 +3,10 @@ import * as React from 'react';
 import { createPortal } from 'react-dom';
 import { useSceneValue } from './SceneContext';
 const { useEffect, useState } = React;
+const hyphenateRE = /\B([A-Z])/g;
+const hyphenate = function(str: string) {
+  return str.replace(hyphenateRE, '-$1').toLowerCase();
+};
 
 export interface IColorLegendProps {
   position: PositionName;
@@ -31,7 +35,7 @@ export default function CustomControl(
         const cssText = Object.keys(style)
           .map((key: string) => {
             // @ts-ignore
-            return `${key}:${style[key]}`;
+            return `${hyphenate(key)}:${style[key]}`;
           })
           .join(';');
         el.style.cssText = cssText;
