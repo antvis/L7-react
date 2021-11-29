@@ -3,7 +3,6 @@ import * as React from 'react';
 import { isEqual } from 'lodash';
 import { IAttributeOptions } from './';
 
-const { useEffect } = React;
 interface ILayerProps {
   layer: ILayer;
   shape: Partial<IAttributeOptions>;

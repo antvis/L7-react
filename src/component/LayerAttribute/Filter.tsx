@@ -2,7 +2,6 @@ import { ILayer, StyleAttrField } from '@antv/l7';
 import * as React from 'react';
 import { IAttributeOptions } from './';
 import { isEqual } from 'lodash';
-const { useEffect } = React;
 interface ILayerProps {
   layer: ILayer;
   filter: Partial<IAttributeOptions>;
