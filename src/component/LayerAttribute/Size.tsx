@@ -1,6 +1,6 @@
 import { ILayer, StyleAttrField } from '@antv/l7';
 import * as React from 'react';
-import { isEqual } from 'lodash';
+import isEqual from 'lodash/isEqual';
 import { IAttributeOptions } from './';
 interface ILayerProps {
   layer: ILayer;
