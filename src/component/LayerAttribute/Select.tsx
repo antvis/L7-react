@@ -1,8 +1,7 @@
 import { IActiveOption, ILayer } from '@antv/l7';
 import * as React from 'react';
-import { isEqual } from 'lodash';
+import { isEqual } from '../util';
 
-const { useEffect } = React;
 interface ILayerProps {
   layer: ILayer;
   select: {

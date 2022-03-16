@@ -1,7 +1,7 @@
 import { ILayer } from '@antv/l7';
 import * as React from 'react';
 import { ISourceOptions } from './';
-import { isEqual } from 'lodash';
+import { isEqual } from '../util';
 
 interface ISourceProps {
   layer: ILayer;

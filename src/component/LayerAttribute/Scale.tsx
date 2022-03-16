@@ -1,7 +1,7 @@
 import { ILayer, IScale, IScaleOptions } from '@antv/l7';
 import * as React from 'react';
 import { IScaleAttributeOptions } from './';
-import { isEqual } from 'lodash';
+import { isEqual } from '../util';
 
 interface ILayerProps {
   layer: ILayer;

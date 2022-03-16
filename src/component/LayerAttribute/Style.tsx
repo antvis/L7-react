@@ -1,7 +1,7 @@
 import { ILayer } from '@antv/l7';
 import * as React from 'react';
 import { IStyleOptions } from './';
-import { isEqual } from 'lodash';
+import { isEqual } from '../util';
 
 const { useEffect } = React;
 interface ILayerProps {

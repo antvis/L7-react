@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.7.7",
+    "@types/lodash": "^4.14.180",
     "@types/mapbox-gl": "^1.11.2",
     "ahooks": "^2.6.1",
     "load-styles": "^2.0.0",
@@ -47,6 +48,7 @@
   },
   "peerDependencies": {
     "@antv/l7": "^2.2.37",
+    "mapbox-gl": "^1.2.1",
     "react": "^16.8.6 || ^17.0.2",
     "react-dom": "^16.8.6 || ^17.0.2"
   },

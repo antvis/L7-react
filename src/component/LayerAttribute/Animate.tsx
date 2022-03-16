@@ -1,8 +1,6 @@
 import { IAnimateOption, ILayer } from '@antv/l7';
 import * as React from 'react';
-import { IStyleOptions } from './';
-import { isEqual } from 'lodash';
-const { useEffect } = React;
+import { isEqual } from '../util';
 interface ILayerProps {
   layer: ILayer;
   animate: Partial<IAnimateOption>;
