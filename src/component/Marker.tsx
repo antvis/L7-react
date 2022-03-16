@@ -23,6 +23,7 @@ export default class MarkerComponet extends React.PureComponent<IMarkerProps> {
   private el: HTMLDivElement;
   private scene: Scene;
   private marker: IMarker;
+
   constructor(props: IMarkerProps) {
     super(props);
     this.el = document.createElement('div');
@@ -50,6 +51,14 @@ export default class MarkerComponet extends React.PureComponent<IMarkerProps> {
       this.marker.setLnglat(this.props.lnglat as ILngLat | IPoint);
     }
   }
+
+  public UNSAFE_componentWillReceiveProps(props: IMarkerProps) {
+    const { lnglat } = props;
+    if (lnglat) {
+      this.marker.setLnglat(lnglat as ILngLat);
+    }
+  }
+
   public componentWillUnmount() {
     if (this.marker) {
       this.marker.remove();
