@@ -45,17 +45,10 @@ export default class MarkerComponet extends React.PureComponent<IMarkerProps> {
   }
   public componentDidUpdate(prevProps: IMarkerProps) {
     const positionChanged =
-      prevProps?.lnglat.toString() !== this.props?.lnglat.toString();
+      JSON.stringify(prevProps?.lnglat) !== JSON.stringify(this.props?.lnglat);
 
-    if (positionChanged) {
+    if (positionChanged && this.props.lnglat) {
       this.marker.setLnglat(this.props.lnglat as ILngLat | IPoint);
-    }
-  }
-
-  public UNSAFE_componentWillReceiveProps(props: IMarkerProps) {
-    const { lnglat } = props;
-    if (lnglat) {
-      this.marker.setLnglat(lnglat as ILngLat);
     }
   }
 
