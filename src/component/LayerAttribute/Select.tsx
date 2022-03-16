@@ -1,7 +1,7 @@
 import { IActiveOption, ILayer } from '@antv/l7';
 import * as React from 'react';
+import { isEqual } from '../util';
 
-const { useEffect } = React;
 interface ILayerProps {
   layer: ILayer;
   select: {
@@ -10,8 +10,7 @@ interface ILayerProps {
 }
 export default React.memo(function Chart(props: ILayerProps) {
   const { layer, select } = props;
-  useEffect(() => {
-    layer.select(select.option);
-  }, [JSON.stringify(select)]);
+  layer.select(select.option);
+
   return null;
-});
+}, isEqual);

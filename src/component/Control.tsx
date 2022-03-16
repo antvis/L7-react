@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react';
 import { useSceneValue } from './SceneContext';
 export interface IControlProps {
   type: 'scale' | 'zoom' | 'logo' | 'layer';
-  position: PositionName;
+  position?: PositionName;
   [key: string]: any;
 }
 export default React.memo(function MapControl(props: IControlProps) {

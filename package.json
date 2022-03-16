@@ -1,6 +1,6 @@
 {
   "name": "@antv/l7-react",
-  "version": "2.3.6",
+  "version": "2.3.9",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -40,12 +40,16 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.7.7",
+    "@types/eslint": "^8.4.1",
+    "@types/lodash": "^4.14.180",
     "@types/mapbox-gl": "^1.11.2",
     "ahooks": "^2.6.1",
-    "load-styles": "^2.0.0"
+    "load-styles": "^2.0.0",
+    "lodash": "^4.17.21"
   },
   "peerDependencies": {
     "@antv/l7": "^2.2.37",
+    "mapbox-gl": "^1.2.1",
     "react": "^16.8.6 || ^17.0.2",
     "react-dom": "^16.8.6 || ^17.0.2"
   },
@@ -55,7 +59,7 @@
     "@types/react-dom": "^17.0.13",
     "@types/react-router-config": "^5.0.6",
     "@types/react-router-dom": "^5.3.3",
-    "@umijs/preset-react": "2.x",
+    "@umijs/preset-react": "1.x",
     "@umijs/test": "^3.0.5",
     "dumi": "^1.0.9",
     "father-build": "^1.17.2",

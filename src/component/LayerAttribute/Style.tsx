@@ -1,6 +1,7 @@
 import { ILayer } from '@antv/l7';
 import * as React from 'react';
 import { IStyleOptions } from './';
+import { isEqual } from '../util';
 
 const { useEffect } = React;
 interface ILayerProps {
@@ -9,11 +10,8 @@ interface ILayerProps {
 }
 export default React.memo(function Chart(props: ILayerProps) {
   const { layer, style } = props;
-  useEffect(
-    () => {
-      layer.style(style);
-    },
-    Object.keys(style).map(key => style[key]),
-  );
+
+  layer.style(style);
+
   return null;
-});
+}, isEqual);

@@ -1,7 +1,6 @@
 import { IActiveOption, ILayer } from '@antv/l7';
 import * as React from 'react';
-
-const { useEffect } = React;
+import { isEqual } from '../util';
 interface ILayerProps {
   layer: ILayer;
   active: {
@@ -10,8 +9,7 @@ interface ILayerProps {
 }
 export default React.memo(function Chart(props: ILayerProps) {
   const { layer, active } = props;
-  useEffect(() => {
-    layer.active(active.option);
-  }, [JSON.stringify(active)]);
+  layer.active(active.option);
+
   return null;
-});
+}, isEqual);
