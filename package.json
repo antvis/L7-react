@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.7.7",
+    "@types/eslint": "^8.4.1",
     "@types/lodash": "^4.14.180",
     "@types/mapbox-gl": "^1.11.2",
     "ahooks": "^2.6.1",
