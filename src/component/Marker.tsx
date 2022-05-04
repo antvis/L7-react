@@ -14,7 +14,7 @@ import * as React from 'react';
 import { createPortal } from 'react-dom';
 import { SceneContext } from './SceneContext';
 export interface IMarkerProps {
-  option?: IMarkerOption;
+  option?: Partial<IMarkerOption>;
   lnglat: ILngLat | number[];
   onMarkerLoaded?: (marker: IMarker) => void;
   children?: React.ReactNode;
