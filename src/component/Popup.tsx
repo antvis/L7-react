@@ -12,8 +12,8 @@ import { createPortal } from 'react-dom';
 import { SceneContext } from './SceneContext';
 export interface IPopupProps {
   option?: Partial<IPopupOption>;
-  lnglat: number[] | { lng: number; lat: number };
-  lngLat?: number[] | { lng: number; lat: number };
+  lnglat: [number, number] | { lng: number; lat: number };
+  lngLat?: [number, number] | { lng: number; lat: number };
   children?: React.ReactNode;
 }
 export default class PopupComponet extends React.PureComponent<IPopupProps> {
@@ -38,7 +38,7 @@ export default class PopupComponet extends React.PureComponent<IPopupProps> {
       p.setLnglat(lngLat);
     }
     if (children) {
-      p.setDOMContent(this.el);
+      p.setHTML(this.el);
     }
     this.popup = p;
     this.scene.addPopup(p);
@@ -61,7 +61,7 @@ export default class PopupComponet extends React.PureComponent<IPopupProps> {
         stopPropagation: this.props.option?.stopPropagation,
       });
       this.popup.setLnglat(this.props.lnglat);
-      this.popup.setDOMContent(this.el);
+      this.popup.setHTML(this.el);
       this.scene.addPopup(this.popup);
     }
   }
