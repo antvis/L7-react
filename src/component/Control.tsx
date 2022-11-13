@@ -1,40 +1,58 @@
-import { IControl, Logo, PositionName, Scale, Zoom, Layers } from '@antv/l7';
+import {
+  IControl,
+  Logo,
+  PositionName,
+  Scale,
+  Zoom,
+  LayerSwitch,
+  Fullscreen,
+  Control,
+  MouseLocation,
+  MapTheme,
+  GeoLocate,
+  ExportImage,
+} from '@antv/l7';
 import React, { useRef, useEffect } from 'react';
 import { useSceneValue } from './SceneContext';
 export interface IControlProps {
-  type: 'scale' | 'zoom' | 'logo' | 'layer';
+  type:
+    | 'scale'
+    | 'zoom'
+    | 'logo'
+    | 'layer'
+    | 'layerSwitch'
+    | 'mouseLocation'
+    | 'mapTheme'
+    | 'geoLocate'
+    | 'exportImage'
+    | 'fullscreen';
   position?: PositionName;
   [key: string]: any;
 }
+
+const CONTROL_TYPE_MAP: Record<IControlProps['type'], typeof Control<any>> = {
+  exportImage: ExportImage,
+  fullscreen: Fullscreen,
+  geoLocate: GeoLocate,
+  layer: LayerSwitch,
+  layerSwitch: LayerSwitch,
+  logo: Logo,
+  mapTheme: MapTheme,
+  mouseLocation: MouseLocation,
+  zoom: Zoom,
+  scale: Scale
+};
+
 export default React.memo(function MapControl(props: IControlProps) {
   const scene = useSceneValue();
   const control = useRef<IControl>();
   const { type, position, ...rest } = props;
   useEffect(() => {
-    let ctr: IControl;
-    switch (type) {
-      case 'scale':
-        ctr = new Scale({
-          position: position || 'bottomright',
-        });
-        break;
-      case 'zoom':
-        ctr = new Zoom({
-          position: position || 'topright',
-          ...rest,
-        });
-        break;
-      case 'logo':
-        ctr = new Logo({
-          position: position || 'bottomleft',
-          ...rest,
-        });
-      case 'layer':
-        ctr = new Layers({
-          position: position || 'bottomleft',
-          ...rest,
-        });
-    }
+    const Control = CONTROL_TYPE_MAP[type];
+    const ctr = new Control({
+      position,
+      ...rest
+    })
     control.current = ctr;
     scene.addControl(ctr);
     return () => {
@@ -44,8 +62,10 @@ export default React.memo(function MapControl(props: IControlProps) {
   }, [type]);
 
   useEffect(() => {
-    control.current &&
+    if (control.current) {
+      // @ts-ignore
       control.current.setPosition((position as any) || 'bottomleft');
+    }
   }, [position]);
 
   return null;
