@@ -1,5 +1,11 @@
 import React from 'react';
-import { MapScene, Control, PolygonLayer, HeatmapLayer } from '@antv/l7-react';
+import {
+  MapScene,
+  AMapSceneV2,
+  Control,
+  PolygonLayer,
+  HeatmapLayer,
+} from '@antv/l7-react';
 import { useRequest } from 'ahooks';
 async function getData(url: string) {
   const res = await fetch(url);
@@ -22,7 +28,7 @@ export default () => {
   }, []);
 
   return (
-    <MapScene
+    <AMapSceneV2
       map={{
         pitch: 0,
         style: 'light',
@@ -33,6 +39,12 @@ export default () => {
         height: '400px',
         position: 'relative',
         background: '#011030',
+      }}
+      onSceneLoaded={scene => {
+        console.log(scene);
+        setTimeout(() => {
+          scene.destroy();
+        }, 2000);
       }}
     >
       {fetches[urls.grid]?.loading === false && (
@@ -88,6 +100,6 @@ export default () => {
       )}
       <Control type="scale" position="bottomright" />
       <Control type="zoom" position="bottomleft" />
-    </MapScene>
+    </AMapSceneV2>
   );
 };

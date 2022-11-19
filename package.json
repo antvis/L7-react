@@ -48,13 +48,13 @@
     "lodash": "^4.17.21"
   },
   "peerDependencies": {
-    "@antv/l7": "^2.10.11",
+    "@antv/l7": "^2.10.15",
     "mapbox-gl": "^1.2.1",
     "react": "^16.8.6 || ^17.0.2",
     "react-dom": "^16.8.6 || ^17.0.2"
   },
   "devDependencies": {
-    "@antv/l7": "^2.10.6",
+    "@antv/l7": "^2.10.15",
     "@types/react": "^17.0.40",
     "@types/react-dom": "^17.0.13",
     "@types/react-router-config": "^5.0.6",

@@ -6,7 +6,7 @@ export default () => {
       map={{
         center: [110.19382669582967, 50.258134],
         pitch: 0,
-        style: 'dark',
+        style: 'normal',
         zoom: 1,
       }}
       style={{
@@ -16,6 +16,9 @@ export default () => {
       }}
     >
       <ImageLayer
+        options={{
+          autoFit: true,
+        }}
         source={{
           data:
             'https://gw.alipayobjects.com/mdn/antv_site/afts/img/A*8SUaRr7bxNsAAAAAAAAAAABkARQnAQ',
@@ -28,6 +31,9 @@ export default () => {
               36.4786759137,
             ],
           },
+        }}
+        style={{
+          opacity: 1,
         }}
       />
     </AMapScene>
