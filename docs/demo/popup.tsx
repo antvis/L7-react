@@ -68,13 +68,14 @@ export default () => {
         >
           <div
             onClick={e => {
-              // e.stopPropagation();
+              e.stopPropagation();
               // e.preventDefault();
               alert('我被点击了');
             }}
           >
             <button
-              onClick={() => {
+              onClick={e => {
+                e.stopPropagation();
                 alert('b我被点击了');
               }}
             >
