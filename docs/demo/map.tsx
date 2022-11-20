@@ -40,12 +40,6 @@ export default () => {
         position: 'relative',
         background: '#011030',
       }}
-      onSceneLoaded={scene => {
-        console.log(scene);
-        setTimeout(() => {
-          scene.destroy();
-        }, 2000);
-      }}
     >
       {fetches[urls.grid]?.loading === false && (
         <HeatmapLayer

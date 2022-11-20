@@ -3,6 +3,7 @@ export * from './component/MapScene/interface';
 export { default as AMapScene } from './component/MapScene/AMapScene';
 export { default as MapboxScene } from './component/MapScene/MapboxScene';
 export { default as AMapSceneV2 } from './component/MapScene/AMapSceneV2';
+export { default as AMapSceneV1 } from './component/MapScene/AMapSceneV1';
 export { default as MapScene } from './component/MapScene/MapScene';
 export { default as Scene } from './component/Scene';
 export { default as Control } from './component/Control';
