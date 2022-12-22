@@ -21,7 +21,7 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "typings": "lib/index.d.ts",
-  "unpkg": "dist/l7-react.js",
+  "bin": "postinstall.js",
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
