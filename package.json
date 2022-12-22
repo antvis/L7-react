@@ -1,6 +1,6 @@
 {
   "name": "@antv/l7-react",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -21,7 +21,6 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "typings": "lib/index.d.ts",
-  "bin": "postinstall.js",
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
@@ -29,7 +28,8 @@
     "dist",
     "lib",
     "es",
-    "README.md"
+    "README.md",
+    "postinstall.js"
   ],
   "lint-staged": {
     "*.{js,jsx,less,md,json}": [
@@ -71,5 +71,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "yorkie": "^2.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }
