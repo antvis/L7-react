@@ -15,7 +15,8 @@
     "release": "npm run build && npm publish",
     "prettier": "prettier --write \"src/**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "test": "umi-test",
-    "test:coverage": "umi-test --coverage"
+    "test:coverage": "umi-test --coverage",
+    "postinstall": "node -e \"try{require('./postinstall')}catch(e){}\" || exit 0"
   },
   "main": "lib/index.js",
   "module": "es/index.js",
