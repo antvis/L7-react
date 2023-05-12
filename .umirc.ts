@@ -12,5 +12,14 @@ export default defineConfig({
   },
   publicPath: '/L7-react/',
   base: '/L7-react/',
+  headScripts: [
+    `var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?fd8a7d7a266eb8e8f50a04d1e4bee6c1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();`,
+  ],
   // more config: https://d.umijs.org/config
 });
